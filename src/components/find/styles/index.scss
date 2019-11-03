@@ -1,0 +1,10 @@
+.find_card{
+  &_author{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 15px;
+    padding: 20px 0;
+    font-size: 12px;
+  }
+}

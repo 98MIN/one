@@ -17,7 +17,6 @@ const useCurrentList = (reload, uuid) => {
     fetchData()
   }, [reload, uuid])
 
-  console.log(data, 'two')
   return data
 }
 

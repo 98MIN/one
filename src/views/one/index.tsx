@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import Find from 'components/find'
+
 import useOneList from 'hooks/useOneList'
 import useCurrentList from 'hooks/useCurrentList'
 
@@ -8,6 +10,6 @@ const One = () => {
   const data = useOneList(reload)
   const cur_data = useCurrentList(reload, data[0])
 
-  return null
+  return <Find picture="http://image.wufazhuce.com/Fhtls7PgldVmNGYftTdx8YLEAHKo" type="摄影" author="Alvaro Matzumura" />
 }
 export default One

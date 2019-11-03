@@ -14,7 +14,6 @@ const useOnelist = (reload) => {
     fetchData()
   }, [reload])
 
-  console.log(data,'one')
   return data
 }
 
