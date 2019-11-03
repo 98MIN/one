@@ -9,7 +9,7 @@ const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = React.useState('ONE')
 
   return (
-    <div>
+    <div style={{ background: 'white' }}>
       <TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="white" prerenderingSiblingsNumber={0}>
         <TabBar.Item
           title="ONE"
