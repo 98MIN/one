@@ -1,5 +1,6 @@
 .find_card {
   color: #333;
+  width: 100%;
 
   &_author,
   &_info {
@@ -18,5 +19,32 @@
     padding: 0px 25px;
     line-height: 1.5;
     font-weight: 500;
+  }
+  &_footer {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &_left,
+    &_right {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      span {
+        font-size: 22px;
+      }
+    }
+    &_left {
+      justify-content: start;
+      width: 40%;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+
+    &_right {
+      flex: 1;
+    }
   }
 }

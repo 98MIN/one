@@ -4,6 +4,7 @@ import Index from './views'
 
 import { TabBar } from 'antd-mobile'
 import 'antd-mobile/dist/antd-mobile.css'
+import 'assets/iconfont.css'
 
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = React.useState('ONE')
