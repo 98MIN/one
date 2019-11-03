@@ -1,14 +1,26 @@
 import * as React from 'react'
 
-import useOneList from '../hooks/useOneList'
+import One from 'views/one'
+import Me from 'views/me'
+import All from 'views/all'
 
 interface IndexProps {
   page: string
 }
 
 const Index: React.FC<IndexProps> = ({ page }) => {
-  const a = useOneList()
-  return <div>{page}</div>
+  const renderTab = (page: string) => {
+    switch (page) {
+      case 'ONE':
+        return <One />
+      case 'ALL':
+        return <All />
+      case 'ME':
+        return <Me />
+    }
+  }
+
+  return <div>{renderTab(page)}</div>
 }
 
 export default Index

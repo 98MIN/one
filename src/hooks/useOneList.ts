@@ -1,15 +1,20 @@
 import * as React from 'react'
 
+import { fetchIDList } from 'apis/apis'
 
-import { BASE_URL } from 'apis/apis'
-
-const useOnelist = () => {
+const useOnelist = (reload) => {
   const [data, setData] = React.useState<string[]>([])
-
   React.useEffect(() => {
-    console.log(BASE_URL)
-  })
+    async function fetchData() {
+      const { data } = await fetchIDList()
 
+      setData(data)
+    }
+
+    fetchData()
+  }, [reload])
+
+  console.log(data,'one')
   return data
 }
 

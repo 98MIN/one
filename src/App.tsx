@@ -6,11 +6,11 @@ import { TabBar } from 'antd-mobile'
 import 'antd-mobile/dist/antd-mobile.css'
 
 const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = React.useState('blueTab')
+  const [selectedTab, setSelectedTab] = React.useState('ONE')
 
   return (
     <div>
-      <TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="white">
+      <TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="white" prerenderingSiblingsNumber={0}>
         <TabBar.Item
           title="ONE"
           key="ONE"
