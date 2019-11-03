@@ -8,17 +8,40 @@ import useCurrentList from 'hooks/useCurrentList'
 const One = () => {
   const [reload, setReload] = React.useState<number>(0)
   const data = useOneList(reload)
-  const cur_data = useCurrentList(reload, data[0])
-  console.log(cur_data)
+  const { content_list } = useCurrentList(reload, data[0])
+
   return (
-    <Find
-      picture="http://image.wufazhuce.com/Fhtls7PgldVmNGYftTdx8YLEAHKo"
-      type="摄影"
-      author="Alvaro Matzumura"
-      forward="一般来说，外在事件和我们的目标就像两股方向相反的力，这两股力之间形成的对角线，就是我们生活的轨迹。"
-      word_info="叔本华《人生的智慧》"
-      like_count={'999+'}
-    />
+    <>
+      {content_list.map((v, index) => {
+        const { img_url, like_count, title, forward, words_info, item_id, pic_info } = v
+
+        return (
+          <div key={index}>
+            {index === 0 ? (
+              <Find
+                picture={img_url}
+                like_count={like_count}
+                type={title}
+                forward={forward}
+                word_info={words_info}
+                id={item_id}
+                author={pic_info}
+              />
+            ) : (
+              <Find
+                picture={img_url}
+                like_count={like_count}
+                type={title}
+                forward={forward}
+                word_info={words_info}
+                id={item_id}
+                author={pic_info}
+              />
+            )}
+          </div>
+        )
+      })}
+    </>
   )
 }
 export default One

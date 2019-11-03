@@ -28,7 +28,7 @@ const Find: React.FC<any> = ({ picture, type, author, forward, word_info, id, li
           <span className="iconfont icon-dianzan"></span>
           <span className="iconfont icon-shoucang"></span>
           <span className="iconfont icon-fenxiang"></span>
-          <Badge text="999" style={{ background: 'rgba(0,0,0,0.2)' }}>
+          <Badge text={like_count} style={{ background: 'rgba(0,0,0,0.3)' }}>
             <span className="iconfont icon-xihuan"></span>
           </Badge>
         </div>
