@@ -4,7 +4,17 @@ import { Badge } from 'antd-mobile'
 
 import './styles/index.scss'
 
-const Find: React.FC<any> = ({ picture, type, author, forward, word_info, id, like_count }) => {
+export interface FindProps {
+  picture: string
+  forward: string
+  type: string
+  author: string
+  word_info: string
+  like_count: string
+  id?: string
+}
+
+const Find: React.FC<FindProps> = ({ picture, type, author, forward, word_info, id, like_count }) => {
   return (
     <div className="find_card">
       <img src={picture} style={{ height: 200, width: '100%' }} />

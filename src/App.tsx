@@ -21,7 +21,6 @@ const App: React.FC = () => {
           onPress={() => {
             setSelectedTab('ONE')
           }}
-          data-seed="logId"
         >
           <Index page="ONE" />
         </TabBar.Item>
