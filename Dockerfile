@@ -8,4 +8,4 @@ RUN npm install --registry=https://registry.npm.taobao.org \
     && mv ../build .
 
 FROM nginx as prod
-COPY --from=builder /APP/build /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
