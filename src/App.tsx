@@ -10,31 +10,13 @@ const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = React.useState('ONE')
 
   return (
-    <div style={{ background: 'white' }}>
+    <div style={{ position: 'fixed', height: '100%', width: '100%', bottom: 0 }}>
       <TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="white" prerenderingSiblingsNumber={0}>
         <TabBar.Item
           title="ONE"
           key="ONE"
-          icon={
-            <div
-              style={{
-                width: '22px',
-                height: '22px',
-                background:
-                  'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat',
-              }}
-            />
-          }
-          selectedIcon={
-            <div
-              style={{
-                width: '22px',
-                height: '22px',
-                background:
-                  'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat',
-              }}
-            />
-          }
+          icon={<span className="iconfont icon-fasong"></span>}
+          selectedIcon={<span className="iconfont icon-fasong"></span>}
           selected={selectedTab === 'ONE'}
           onPress={() => {
             setSelectedTab('ONE')
@@ -44,26 +26,8 @@ const App: React.FC = () => {
           <Index page="ONE" />
         </TabBar.Item>
         <TabBar.Item
-          icon={
-            <div
-              style={{
-                width: '22px',
-                height: '22px',
-                background:
-                  'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat',
-              }}
-            />
-          }
-          selectedIcon={
-            <div
-              style={{
-                width: '22px',
-                height: '22px',
-                background:
-                  'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat',
-              }}
-            />
-          }
+          icon={<span className="iconfont icon-fenlei"></span>}
+          selectedIcon={<span className="iconfont icon-fenlei"></span>}
           title="ALL"
           key="ALL"
           selected={selectedTab === 'ALL'}
@@ -74,8 +38,8 @@ const App: React.FC = () => {
           <Index page="ALL" />
         </TabBar.Item>
         <TabBar.Item
-          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
+          icon={<span className="iconfont icon-wode"></span>}
+          selectedIcon={<span className="iconfont icon-wode"></span>}
           title="ME"
           key="ME"
           selected={selectedTab === 'ME'}
