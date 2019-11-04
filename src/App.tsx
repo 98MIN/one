@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Index from './views'
+import Main from './views/Main'
 
 import { TabBar } from 'antd-mobile'
 import 'antd-mobile/dist/antd-mobile.css'
@@ -32,7 +32,7 @@ const App: React.FC = () => {
                 setSelectedTab(title)
               }}
             >
-              <Index page={title} />
+              <Main page={title} />
             </TabBar.Item>
           )
         })}
