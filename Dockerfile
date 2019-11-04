@@ -1,7 +1,7 @@
 FROM node as builder
 WORKDIR /app
 COPY . /app
-RUN install --registry=https://registry.npm.taobao.org \
+RUN npm install --registry=https://registry.npm.taobao.org \
     && npm run build \
     && mv build ../ \
     && rm -rf * \
