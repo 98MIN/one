@@ -3,9 +3,12 @@ import * as React from 'react'
 import { PullToRefresh } from 'antd-mobile'
 
 import Find from 'components/find/Find'
+import Essay from 'components/essay/Essay'
 
 import useOneList from 'hooks/useOneList'
 import useCurrentList, { Result } from 'hooks/useCurrentList'
+
+import categoryFormat from 'utils/categoryFormat'
 
 const One = () => {
   const [reload, setReload] = React.useState<number>(0)
@@ -47,7 +50,7 @@ const One = () => {
       onRefresh={handleRefresh}
     >
       {content.map((v: any, index) => {
-        const { img_url, like_count, title, forward, words_info, item_id, pic_info } = v
+        const { img_url, like_count, title, forward, words_info, item_id, pic_info, content_type } = v
 
         return (
           <div key={index}>
@@ -62,13 +65,15 @@ const One = () => {
                 author={pic_info}
               />
             ) : (
-              <Find
+              <Essay
                 picture={img_url}
-                like_count={like_count}
-                type={title}
+                like={like_count}
+                type={categoryFormat(content_type)}
+                title={title}
+                date={'20'}
                 forward={forward}
-                word_info={words_info}
-                id={item_id}
+                // word_info={words_info}
+                // id={item_id}
                 author={pic_info}
               />
             )}

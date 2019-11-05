@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import One from 'views/one'
+import One from 'views/one/One'
 import Me from 'views/me'
 import All from 'views/all'
 
