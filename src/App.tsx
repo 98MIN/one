@@ -3,7 +3,7 @@ import React from 'react'
 import Main from './views/Main'
 
 import { TabBar } from 'antd-mobile'
-import 'antd-mobile/dist/antd-mobile.css'
+
 import 'assets/iconfont.css'
 
 const App: React.FC = () => {
