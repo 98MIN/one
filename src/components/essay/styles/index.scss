@@ -1,0 +1,55 @@
+.essay {
+  box-sizing: border-box;
+  padding: 0 10px;
+
+  &_type,
+  &_title,
+  &_author,
+  &_forward {
+    padding: 10px 0;
+  }
+
+  &_type {
+    text-align: center;
+  }
+
+  &_title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &_author,
+  &_forward {
+    font-size: 14px;
+    color: rgba(112, 111, 111, 0.5);
+  }
+
+  &_footer {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &_left,
+    &_right {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      span {
+        font-size: 22px;
+      }
+    }
+
+    &_left {
+      justify-content: start;
+      width: 40%;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+
+    &_right {
+      flex: 1;
+    }
+  }
+}

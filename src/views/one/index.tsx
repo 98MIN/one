@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { PullToRefresh } from 'antd-mobile'
 
-import Find from 'components/find'
+import Find from 'components/find/Find'
 
 import useOneList from 'hooks/useOneList'
 import useCurrentList, { Result } from 'hooks/useCurrentList'
