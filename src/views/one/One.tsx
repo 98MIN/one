@@ -10,7 +10,7 @@ import useCurrentList, { Content } from 'hooks/useCurrentList'
 
 import categoryFormat from 'utils/categoryFormat'
 
-const One = () => {
+const One: React.FC<any> = ({ match, history }) => {
   const [reload, setReload] = React.useState<number>(0)
   const [refreshing, setRefreshing] = React.useState<boolean>(false)
   const [content, setContent] = React.useState<Content[]>([])
@@ -33,6 +33,10 @@ const One = () => {
     }, 1000)
   }
 
+  const handlePathChange = (uuid: string) => {
+    history.push(`${match.path}content/${uuid}`)
+  }
+
   React.useEffect(() => {
     setContent((content) => content.concat(content_list))
   }, [JSON.stringify(content_list)])
@@ -51,7 +55,7 @@ const One = () => {
       distanceToRefresh={window.devicePixelRatio * 25}
     >
       {content.map((v: Content, index: number) => {
-        const { img_url, like_count, title, forward, words_info, item_id, pic_info, content_type } = v
+        const { img_url, like_count, title, forward, words_info, item_id, pic_info, content_type, post_date } = v
 
         return (
           <div key={index}>
@@ -63,6 +67,7 @@ const One = () => {
                 forward={forward}
                 word_info={words_info}
                 id={item_id}
+                // onClick={() => handlePathChange(item_id)}
                 author={pic_info}
               />
             ) : (
@@ -71,10 +76,10 @@ const One = () => {
                 like={like_count}
                 type={categoryFormat(content_type)}
                 title={title}
-                date={'20'}
+                date={post_date}
                 forward={forward}
                 // word_info={words_info}
-                // id={item_id}
+                onClick={() => handlePathChange(item_id)}
                 author={pic_info}
               />
             )}

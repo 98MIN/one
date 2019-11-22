@@ -9,7 +9,7 @@ export default function categoryFormat(category: string): string {
     case '1':
       return '阅读'
     case '2':
-      return ''
+      return '连载'
     case '3':
       return '问答'
     case '4':

@@ -4,6 +4,7 @@ import { Badge } from 'antd-mobile'
 import './styles/index.scss'
 
 interface EssayProps {
+  onClick?: () => void
   type: string
   title: string
   author: string
@@ -13,14 +14,14 @@ interface EssayProps {
   like: number
 }
 
-const Essay: FC<EssayProps> = ({ type, title, author, picture, forward, date, like }) => {
+const Essay: FC<EssayProps> = ({ type, title, author, picture, forward, date, like, onClick }) => {
   return (
-    <div className="essay">
+    <div className="essay" onClick={onClick}>
       <div className="essay_type">-{type}-</div>
       <div className="essay_title">{title}</div>
       <div className="essay_author">{author}</div>
       <div className="essay_img">
-        <img src={picture} style={{ height: 200, width: '100%' }}/>
+        <img src={picture} style={{ height: 200, width: '100%' }} />
       </div>
       <div className="essay_forward">{forward}</div>
       <div className="essay_footer">

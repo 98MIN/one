@@ -12,11 +12,12 @@ export interface FindProps {
   word_info: string
   like_count: number
   id?: string
+  onClick?: () => void
 }
 
-const Find: React.FC<FindProps> = ({ picture, type, author, forward, word_info, id, like_count }) => {
+const Find: React.FC<FindProps> = ({ picture, type, author, forward, word_info, id, like_count, onClick }) => {
   return (
-    <div className="find_card">
+    <div className="find_card" onClick={onClick}>
       <img src={picture} style={{ height: 200, width: '100%' }} />
       <div className="find_card_author">
         <div>

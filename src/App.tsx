@@ -1,44 +1,20 @@
 import React from 'react'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Main from './views/Main'
-
-import { TabBar } from 'antd-mobile'
+import config from 'routes/config'
 
 import 'assets/iconfont.css'
 import 'styles/reset.css'
 
 const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = React.useState('ONE')
-
-  const items = [
-    { title: 'ONE', icon: 'icon-fasong' },
-    { title: 'ALL', icon: 'icon-fenlei' },
-    { title: 'ME', icon: 'icon-wode' },
-  ]
-
   return (
-    <div style={{ position: 'fixed', height: '100%', width: '100%', bottom: 0 }}>
-      <TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="white" prerenderingSiblingsNumber={0}>
-        {items.map((v) => {
-          const { title, icon } = v
-
-          return (
-            <TabBar.Item
-              title={title}
-              key={title}
-              icon={<span className={`iconfont ${icon}`}></span>}
-              selectedIcon={<span className={`iconfont ${icon}`}></span>}
-              selected={selectedTab === title}
-              onPress={() => {
-                setSelectedTab(title)
-              }}
-            >
-              <Main page={title} />
-            </TabBar.Item>
-          )
+    <Router>
+      <Switch>
+        {config.map((v, index) => {
+          return <Route path={v.path} exact={v.exact} component={v.component} key={index} />
         })}
-      </TabBar>
-    </div>
+      </Switch>
+    </Router>
   )
 }
 
