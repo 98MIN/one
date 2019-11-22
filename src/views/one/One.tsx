@@ -37,17 +37,17 @@ const One = () => {
   }, [JSON.stringify(content_list)])
 
   return (
-    //@ts-ignore
     <PullToRefresh
-      damping={60}
+      damping={100}
       style={{
         height: document.documentElement.clientHeight,
         overflow: 'auto',
       }}
-      indicator={{ deactivate: '上拉可以刷新' }}
+      indicator={{ release: '正在刷新', finish: '刷新成功' }}
       direction="up"
       refreshing={refreshing}
       onRefresh={handleRefresh}
+      distanceToRefresh={25}
     >
       {content.map((v: any, index) => {
         const { img_url, like_count, title, forward, words_info, item_id, pic_info, content_type } = v
