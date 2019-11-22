@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { match } from 'react-router'
+import * as H from 'history'
 
 import { PullToRefresh } from 'antd-mobile'
 
@@ -10,7 +12,12 @@ import useCurrentList, { Content } from 'hooks/useCurrentList'
 
 import categoryFormat from 'utils/categoryFormat'
 
-const One: React.FC<any> = ({ match, history }) => {
+interface OneProps {
+  match: match<any>
+  history: H.History
+}
+
+const One: React.FC<OneProps> = ({ match, history }) => {
   const [reload, setReload] = React.useState<number>(0)
   const [refreshing, setRefreshing] = React.useState<boolean>(false)
   const [content, setContent] = React.useState<Content[]>([])
