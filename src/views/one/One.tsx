@@ -6,16 +6,17 @@ import Find from 'components/find/Find'
 import Essay from 'components/essay/Essay'
 
 import useOneList from 'hooks/useOneList'
-import useCurrentList, { Result } from 'hooks/useCurrentList'
+import useCurrentList, { Content } from 'hooks/useCurrentList'
 
 import categoryFormat from 'utils/categoryFormat'
 
 const One = () => {
   const [reload, setReload] = React.useState<number>(0)
+  const [refreshing, setRefreshing] = React.useState<boolean>(false)
+  const [content, setContent] = React.useState<Content[]>([])
+
   const data = useOneList(reload)
   const { content_list } = useCurrentList(reload, data[reload])
-  const [refreshing, setRefreshing] = React.useState<boolean>(false)
-  const [content, setContent] = React.useState<any>([])
 
   const handleRefresh = () => {
     setRefreshing(true)
@@ -47,9 +48,9 @@ const One = () => {
       direction="up"
       refreshing={refreshing}
       onRefresh={handleRefresh}
-      distanceToRefresh={25}
+      distanceToRefresh={window.devicePixelRatio * 25}
     >
-      {content.map((v: any, index) => {
+      {content.map((v: Content, index: number) => {
         const { img_url, like_count, title, forward, words_info, item_id, pic_info, content_type } = v
 
         return (

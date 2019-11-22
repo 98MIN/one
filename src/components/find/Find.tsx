@@ -10,7 +10,7 @@ export interface FindProps {
   type: string
   author: string
   word_info: string
-  like_count: string
+  like_count: number
   id?: string
 }
 
