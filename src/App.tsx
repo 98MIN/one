@@ -5,6 +5,7 @@ import Main from './views/Main'
 import { TabBar } from 'antd-mobile'
 
 import 'assets/iconfont.css'
+import 'styles/reset.css'
 
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = React.useState('ONE')
