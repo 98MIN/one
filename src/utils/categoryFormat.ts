@@ -14,5 +14,9 @@ export default function categoryFormat(category: string): string {
       return '问答'
     case '4':
       return '音乐'
+    case '5':
+      return '影视'
+    default:
+      return '未知'
   }
 }

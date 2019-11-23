@@ -62,11 +62,11 @@ const One: React.FC<OneProps> = ({ match, history }) => {
       distanceToRefresh={window.devicePixelRatio * 25}
     >
       {content.map((v: Content, index: number) => {
-        const { img_url, like_count, title, forward, words_info, item_id, pic_info, content_type, post_date } = v
+        const { img_url, like_count, title, forward, words_info, item_id, pic_info, content_type, post_date, author } = v
 
         return (
           <div key={index}>
-            {index === 0 ? (
+            {content_type === '0' ? (
               <Find
                 picture={img_url}
                 like_count={like_count}
@@ -87,7 +87,7 @@ const One: React.FC<OneProps> = ({ match, history }) => {
                 forward={forward}
                 // word_info={words_info}
                 onClick={() => handlePathChange(item_id)}
-                author={pic_info}
+                author={author}
               />
             )}
           </div>

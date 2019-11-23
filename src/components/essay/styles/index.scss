@@ -1,6 +1,7 @@
 .essay {
-  margin: 10px 0;
+  margin-bottom: 10px;
   padding: 0 10px;
+  background: white;
 
   &_type,
   &_title,
@@ -11,6 +12,7 @@
 
   &_type {
     text-align: center;
+    font-size: 12px;
   }
 
   &_title {
@@ -22,6 +24,10 @@
   &_forward {
     font-size: 14px;
     color: rgba(112, 111, 111, 0.5);
+  }
+
+  &_forward, &_author {
+    color: #3f3f3f;
   }
 
   &_footer {
@@ -36,20 +42,21 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
-      span {
-        font-size: 22px;
-      }
     }
 
     &_left {
       justify-content: start;
       width: 40%;
       padding: 0 10px;
+      font-size: 14px;
       box-sizing: border-box;
     }
 
     &_right {
       flex: 1;
+      span {
+        font-size: 22px;
+      }
     }
   }
 }

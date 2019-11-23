@@ -7,7 +7,7 @@ const useContent = (uuid) => {
   React.useEffect(() => {
     async function fetchData() {
       const { data } = await fetchContent(uuid)
-
+      
       setData(data)
     }
 

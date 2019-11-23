@@ -17,22 +17,23 @@ const Content: React.FC<IContentProps> = ({
   },
   history,
 }) => {
-  const ret = useContent(id)
+  const { hp_title, hp_content } = useContent(id)
 
   return (
-    <>
-      <div style={{ position: 'fixed', width: '100%' }}>
+    <>   
         <NavBar
           mode="light"
           icon={<Icon type="left" />}
           onLeftClick={() => history.push('/')}
           rightContent={[<Icon key="1" type="ellipsis" />]}
         >
-          QFusion
+          <span style={{color: '#545454', fontSize: 16}}>{hp_title}</span>
         </NavBar>
-      </div>
+      
       <div style={{ padding: 10 }}>
-        <span dangerouslySetInnerHTML={{ __html: ret.hp_content }}></span>
+        <p>{hp_title}</p>
+        <p></p>
+        <span dangerouslySetInnerHTML={{ __html: hp_content }}></span>
       </div>
     </>
   )
