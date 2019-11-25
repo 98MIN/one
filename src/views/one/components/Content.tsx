@@ -2,9 +2,13 @@ import * as React from 'react'
 import { match } from 'react-router'
 import * as H from 'history'
 
-import { NavBar, Icon } from 'antd-mobile'
+import { Icon } from 'antd-mobile'
+
+import NavBar from 'components/navBar'
 
 import useContent from 'hooks/useContent'
+
+import '../style/index.scss'
 
 interface IContentProps {
   match: match<{ id: string }>
@@ -17,25 +21,23 @@ const Content: React.FC<IContentProps> = ({
   },
   history,
 }) => {
-  const { hp_title, hp_content } = useContent(id)
+  const { hp_title, hp_content, author } = useContent(id)
 
   return (
-    <>   
-        <NavBar
-          mode="light"
-          icon={<Icon type="left" />}
-          onLeftClick={() => history.push('/')}
-          rightContent={[<Icon key="1" type="ellipsis" />]}
-        >
-          <span style={{color: '#545454', fontSize: 16}}>{hp_title}</span>
-        </NavBar>
-      
-      <div style={{ padding: 10 }}>
-        <p>{hp_title}</p>
-        <p></p>
+    <div className="content">
+      <NavBar
+        leftComponent={<Icon type="left" />}
+        onLeftClick={() => history.push('/')}
+        rightComponent={<Icon key="1" type="ellipsis" />}
+        centerComponent={<span style={{ color: '#545454', fontSize: 16 }}>{hp_title}</span>}
+      ></NavBar>
+
+      <div className="content-container">
+        <p className="content-container-title">{hp_title}</p>
+        {author && <p className="content-container-author">文 / {author[0].user_name}</p>}
         <span dangerouslySetInnerHTML={{ __html: hp_content }}></span>
       </div>
-    </>
+    </div>
   )
 }
 

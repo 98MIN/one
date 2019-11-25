@@ -1,0 +1,18 @@
+.content {
+  &-container {
+    padding: 5px;
+    color: #000;
+    line-height: 2;
+    font-family: '微软雅黑';
+    font-size: 18px;
+
+    &-title {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    &-author {
+      font-size: 16px;
+    }
+  }
+}
