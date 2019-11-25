@@ -4,8 +4,8 @@ import * as H from 'history'
 
 import { PullToRefresh } from 'antd-mobile'
 
-import Find from 'components/find/Find'
-import Essay from 'components/essay/Essay'
+import Find from './components/Find'
+import Essay from './components/Essay'
 
 import useOneList from 'hooks/useOneList'
 import useCurrentList, { Content } from 'hooks/useCurrentList'
@@ -85,7 +85,6 @@ const One: React.FC<OneProps> = ({ match, history }) => {
                 forward={forward}
                 word_info={words_info}
                 id={item_id}
-                // onClick={() => handlePathChange(item_id)}
                 author={pic_info}
               />
             ) : (
@@ -96,7 +95,6 @@ const One: React.FC<OneProps> = ({ match, history }) => {
                 title={title}
                 date={post_date}
                 forward={forward}
-                // word_info={words_info}
                 onClick={() => handlePathChange(item_id)}
                 author={author}
               />

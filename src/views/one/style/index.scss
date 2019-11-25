@@ -1,4 +1,9 @@
 .content {
+  &-navbar-center {
+    color: #000;
+    font-size: 18px;
+  }
+
   &-container {
     padding: 5px;
     color: #000;
@@ -13,6 +18,124 @@
 
     &-author {
       font-size: 16px;
+    }
+  }
+}
+
+
+.find_card {
+  color: #333;
+  width: 100%;
+  margin-bottom: 10px;
+  background: white;
+
+  &_author,
+  &_info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 15px;
+    padding: 35px 0px;
+    font-size: 12px;
+  }
+  &_author_span {
+    padding: 15px;
+  }
+  &_forward {
+    font-size: 16px;
+    padding: 0px 25px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  &_footer {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &_left,
+    &_right {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      span {
+        font-size: 22px;
+      }
+    }
+    &_left {
+      justify-content: start;
+      width: 40%;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+
+    &_right {
+      flex: 1;
+    }
+  }
+}
+
+
+.essay {
+  margin-bottom: 10px;
+  padding: 0 10px;
+  background: white;
+
+  &_type,
+  &_title,
+  &_author,
+  &_forward {
+    padding: 10px 0;
+  }
+
+  &_type {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  &_title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &_author,
+  &_forward {
+    font-size: 14px;
+    color: rgba(112, 111, 111, 0.5);
+  }
+
+  &_forward, &_author {
+    color: #3f3f3f;
+  }
+
+  &_footer {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &_left,
+    &_right {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    &_left {
+      justify-content: start;
+      width: 40%;
+      padding: 0 10px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    &_right {
+      flex: 1;
+      span {
+        font-size: 22px;
+      }
     }
   }
 }

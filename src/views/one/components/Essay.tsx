@@ -3,7 +3,7 @@ import { Badge } from 'antd-mobile'
 
 import moment from 'moment'
 
-import './styles/index.scss'
+import '../style/index.scss'
 
 interface EssayProps {
   onClick?: () => void

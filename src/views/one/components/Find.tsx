@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { Badge } from 'antd-mobile'
 
-import './styles/index.scss'
+import '../style/index.scss'
 
 export interface FindProps {
   picture: string

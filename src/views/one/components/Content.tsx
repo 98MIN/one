@@ -29,7 +29,7 @@ const Content: React.FC<IContentProps> = ({
         leftComponent={<Icon type="left" />}
         onLeftClick={() => history.push('/')}
         rightComponent={<Icon key="1" type="ellipsis" />}
-        centerComponent={<span style={{ color: '#545454', fontSize: 16 }}>{hp_title}</span>}
+        centerComponent={<span className="content-navbar-center">{hp_title}</span>}
       ></NavBar>
 
       <div className="content-container">
