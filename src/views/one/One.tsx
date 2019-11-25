@@ -49,6 +49,7 @@ const One: React.FC<OneProps> = ({ match, history }) => {
   }, [JSON.stringify(content_list)])
 
   return (
+    //@ts-ignore
     <PullToRefresh
       damping={100}
       style={{
