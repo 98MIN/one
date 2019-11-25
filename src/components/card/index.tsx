@@ -9,7 +9,7 @@ interface ICard {
   headStyle?: React.CSSProperties
   bodyStyle?: React.CSSProperties
   bordered?: boolean
-  cover?: string
+  cover?: React.ReactNode
   title?: React.ReactNode
   content?: React.ReactNode
   style?: React.CSSProperties
