@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { match } from 'react-router'
+import * as H from 'history'
 
 import { TabBar } from 'antd-mobile'
 
@@ -8,8 +10,8 @@ import All from 'views/all'
 
 interface IndexProps {
   page: string
-  match?: any
-  history?: any
+  match?: match<any>
+  history?: H.History
 }
 
 const Index: React.FC<IndexProps> = ({ match, history }) => {

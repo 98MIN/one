@@ -9,6 +9,7 @@
   width: 100%;
   box-sizing: border-box;
   border-bottom: 1px solid #ccc;
+  z-index: 999;
 
   &-center {
     flex:4;
