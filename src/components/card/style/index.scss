@@ -1,0 +1,33 @@
+.card {
+  background: #fff;
+  box-sizing: border-box;
+  margin: 10px 0;
+  padding: 10px 10px 0 10px;
+  width: 98%;
+
+  &-border {
+    border: 1px solid #ccc;
+  }
+
+  &-warp {
+    display: flex;
+    align-items: center;
+  }
+
+  &-cover {
+    padding-bottom: 10px;
+  }
+
+  &-title {
+    display: inline-block;
+    flex: 1;
+    padding-bottom: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &-body{
+    padding-bottom: 10px;
+  }
+}
