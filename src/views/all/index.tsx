@@ -32,6 +32,7 @@ const All: React.FC<IAll> = ({ history, match }) => {
         }
         rightComponent={<Icon type="search" />}
       />
+      <Card title="内容导航" content={1} />
       {list.map(({ id, content_id, title, cover }: IClassification) => (
         <Card
           key={id}

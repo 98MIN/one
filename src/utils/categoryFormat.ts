@@ -5,7 +5,7 @@
 export default function categoryFormat(category: string): string {
   switch (category) {
     case '0':
-      return '摄影'
+      return '图文'
     case '1':
       return '阅读'
     case '2':
@@ -16,6 +16,8 @@ export default function categoryFormat(category: string): string {
       return '音乐'
     case '5':
       return '影视'
+    case '8':
+      return '电台'
     default:
       return '未知'
   }
