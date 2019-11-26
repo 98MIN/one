@@ -13,15 +13,28 @@ import useCurrentList, { Content } from 'hooks/useCurrentList'
 import categoryFormat from 'utils/categoryFormat'
 import NavBar from 'components/navBar'
 
-interface OneProps {
+interface IOneProps {
   match: match
   history: H.History
 }
 
-const One: React.FC<OneProps> = ({ match, history }) => {
+interface IIndicator {
+  activate: string
+  deactivate: string
+  release: string
+  finish: string
+}
+
+const One: React.FC<IOneProps> = ({ match, history }) => {
   const [reload, setReload] = React.useState<number>(0)
   const [refreshing, setRefreshing] = React.useState<boolean>(false)
   const [content, setContent] = React.useState<Content[]>([])
+  const [indicator, setIndicator] = React.useState<IIndicator>({
+    activate: '释放立即刷新',
+    deactivate: '下拉刷新',
+    release: '刷新成功',
+    finish: '请开始您的表演吧',
+  })
 
   const data = useOneList(reload)
   const { content_list } = useCurrentList(reload, data[reload])
@@ -32,7 +45,14 @@ const One: React.FC<OneProps> = ({ match, history }) => {
     /**
      * 图文集合数组的长度
      */
-    if (reload < 9) {
+    if (reload > 9) {
+      setIndicator({
+        activate: '释放立即刷新',
+        deactivate: '下拉刷新',
+        release: '到底了',
+        finish: '表演结束',
+      })
+    } else {
       setReload(reload + 1)
     }
 
@@ -59,12 +79,7 @@ const One: React.FC<OneProps> = ({ match, history }) => {
           height: document.documentElement.clientHeight,
           overflow: 'auto',
         }}
-        indicator={{
-          activate: '释放立即刷新',
-          deactivate: '下拉刷新',
-          release: '刷新成功',
-          finish: '请开始您的表演吧',
-        }}
+        indicator={indicator}
         direction="up"
         refreshing={refreshing}
         onRefresh={handleRefresh}
