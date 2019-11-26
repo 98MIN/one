@@ -13,6 +13,11 @@ interface IndexProps {
   history?: H.History
 }
 
+interface IItems {
+  title: string
+  icon: string
+}
+
 const Index: React.FC<IndexProps> = ({
   match: {
     params: { page },
@@ -20,13 +25,13 @@ const Index: React.FC<IndexProps> = ({
   match,
   history,
 }) => {
-  const items = [
+  const items: IItems[] = [
     { title: 'one', icon: 'icon-fasong' },
     { title: 'all', icon: 'icon-fenlei' },
     { title: 'me', icon: 'icon-wode' },
   ]
 
-  const renderTab = () => {
+  const renderTabs = () => {
     switch (page) {
       case 'one':
         return <One match={match} history={history} />
@@ -40,7 +45,7 @@ const Index: React.FC<IndexProps> = ({
   return (
     <div style={{ position: 'fixed', height: '100%', width: '100%', bottom: 0 }}>
       <TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="white" prerenderingSiblingsNumber={0}>
-        {items.map((v) => {
+        {items.map((v: IItems) => {
           const { title, icon } = v
           const _title = title.toLocaleUpperCase()
 
@@ -55,7 +60,7 @@ const Index: React.FC<IndexProps> = ({
                 history.push(`/main/${title}`)
               }}
             >
-              {renderTab()}
+              {renderTabs()}
             </TabBar.Item>
           )
         })}
