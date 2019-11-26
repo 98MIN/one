@@ -14,7 +14,7 @@ import categoryFormat from 'utils/categoryFormat'
 import NavBar from 'components/navBar'
 
 interface OneProps {
-  match: match<any>
+  match: match
   history: H.History
 }
 
@@ -42,7 +42,7 @@ const One: React.FC<OneProps> = ({ match, history }) => {
   }
 
   const handlePathChange = (uuid: string) => {
-    history.push(`${match.path}content/${uuid}`)
+    history.push(`${match.url}/content/${uuid}`)
   }
 
   React.useEffect(() => {

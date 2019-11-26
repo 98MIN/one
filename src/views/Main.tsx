@@ -9,27 +9,30 @@ import Me from 'views/me'
 import All from 'views/all'
 
 interface IndexProps {
-  page: string
-  match?: match<any>
+  match?: match<{ page: string }>
   history?: H.History
 }
 
-const Index: React.FC<IndexProps> = ({ match, history }) => {
-  const [selectedTab, setSelectedTab] = React.useState('ONE')
-
+const Index: React.FC<IndexProps> = ({
+  match: {
+    params: { page },
+  },
+  match,
+  history,
+}) => {
   const items = [
-    { title: 'ONE', icon: 'icon-fasong' },
-    { title: 'ALL', icon: 'icon-fenlei' },
-    { title: 'ME', icon: 'icon-wode' },
+    { title: 'one', icon: 'icon-fasong' },
+    { title: 'all', icon: 'icon-fenlei' },
+    { title: 'me', icon: 'icon-wode' },
   ]
 
-  const renderTab = (page: string) => {
+  const renderTab = () => {
     switch (page) {
-      case 'ONE':
+      case 'one':
         return <One match={match} history={history} />
-      case 'ALL':
+      case 'all':
         return <All match={match} history={history} />
-      case 'ME':
+      case 'me':
         return <Me match={match} history={history} />
     }
   }
@@ -39,19 +42,20 @@ const Index: React.FC<IndexProps> = ({ match, history }) => {
       <TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="white" prerenderingSiblingsNumber={0}>
         {items.map((v) => {
           const { title, icon } = v
+          const _title = title.toLocaleUpperCase()
 
           return (
             <TabBar.Item
-              title={title}
-              key={title}
+              title={_title}
+              key={_title}
               icon={<span className={`iconfont ${icon}`}></span>}
               selectedIcon={<span className={`iconfont ${icon}`}></span>}
-              selected={selectedTab === title}
+              selected={title === page}
               onPress={() => {
-                setSelectedTab(title)
+                history.push(`/main/${title}`)
               }}
             >
-              {renderTab(title)}
+              {renderTab()}
             </TabBar.Item>
           )
         })}

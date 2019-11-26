@@ -5,6 +5,7 @@ import _ from 'classnames'
 import './style/index.scss'
 
 interface ICard {
+  onClick?: () => void
   className?: string
   headStyle?: React.CSSProperties
   bodyStyle?: React.CSSProperties
@@ -15,16 +16,26 @@ interface ICard {
   style?: React.CSSProperties
 }
 
-const Card: React.FC<ICard> = ({ className, headStyle, bodyStyle, bordered, cover, title, content, style }) => {
+const Card: React.FC<ICard> = ({
+  className,
+  headStyle,
+  bodyStyle,
+  bordered,
+  cover,
+  title,
+  content,
+  style,
+  ...rest
+}) => {
   const _className = _('card', className, { 'card-border': bordered })
   const cover_dom = cover ? <div className="card-cover">{cover}</div> : null
 
   return (
-    <div className={_className} style={style}>
+    <div className={_className} style={style} {...rest}>
       {cover_dom}
       {title && (
-        <div className="card-warp">
-          <span style={headStyle}>{title}</span>
+        <div className="card-warp" style={headStyle}>
+          <span>{title}</span>
         </div>
       )}
       {content && (

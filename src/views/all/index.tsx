@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { match } from 'react-router'
+import * as H from 'history'
 
 import NavBar from 'components/navBar'
 import Card from 'components/card'
@@ -6,12 +8,19 @@ import { Icon } from 'antd-mobile'
 
 import useClassification, { IClassification } from 'hooks/useClassification'
 
-const All: React.FC<any> = () => {
+interface IAll {
+  history?: H.History
+  match?: match
+}
+
+const All: React.FC<IAll> = ({ history, match }) => {
   const [reload, setReload] = React.useState(0)
 
   const list = useClassification(reload)
 
-  console.log(list)
+  const handleClick = (uuid: string) => {
+    history.push(`${match.url}/topical/${uuid}`)
+  }
 
   return (
     <div>
@@ -23,10 +32,12 @@ const All: React.FC<any> = () => {
         }
         rightComponent={<Icon type="search" />}
       />
-      {list.map((v: IClassification) => (
+      {list.map(({ id, content_id, title, cover }: IClassification) => (
         <Card
-          cover={<img src={v.cover} style={{ height: 150, width: '100%' }} key={v.id} />}
-          content={v.title}
+          key={id}
+          onClick={() => handleClick(content_id)}
+          cover={<img src={cover} style={{ height: 150, width: '100%' }} />}
+          content={title}
           bodyStyle={{ fontSize: 16, color: '#000', fontFamily: '微软雅黑' }}
         />
       ))}
