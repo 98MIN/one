@@ -10,7 +10,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <Switch>
-        <Redirect exact={true} strict={true} from={'/'} to={'/main/all/navigation/question'} />
+        <Redirect exact={true} strict={true} from={'/'} to={'/main/one'} />
         {config.map((v, index) => {
           return <Route path={v.path} exact={v.exact} component={v.component} key={index} />
         })}

@@ -22,6 +22,38 @@ const All: React.FC<IAll> = ({ history, match }) => {
     history.push(`${match.url}/topical/${uuid}`)
   }
 
+  const renderNavigation = (web_url: string, content: string, key: number) => {
+    return (
+      <Card
+        key={key}
+        style={{
+          position: 'relative',
+          height: 80,
+          width: 80,
+        }}
+        cover={<img src={web_url} />}
+        content={content}
+        onClick={() => console.log(1)}
+        bodyStyle={{
+          position: 'absolute',
+          bottom: 0,
+          height: 20,
+          width: '90%',
+          textAlign: 'center',
+          background: 'rgba(0,0,0,0.1)',
+          border: '1px solid red'
+        }}
+      />
+    )
+  }
+
+  const items = [
+    { weburl: '', content: '连载111111' },
+    { weburl: '', content: '音乐' },
+    { weburl: '', content: '问答' },
+    { weburl: '', content: '图文' },
+  ]
+
   return (
     <div>
       <NavBar
@@ -32,7 +64,11 @@ const All: React.FC<IAll> = ({ history, match }) => {
         }
         rightComponent={<Icon type="search" />}
       />
-      <Card title="内容导航" content={1} />
+      <Card
+        title="内容导航"
+        content={items.map((v, index) => renderNavigation(v.weburl, v.content, index))}
+        bodyStyle={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}
+      />
       {list.map(({ id, content_id, title, cover }: IClassification) => (
         <Card
           key={id}
