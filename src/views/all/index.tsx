@@ -9,6 +9,7 @@ import { Icon, Card } from 'antd-mobile'
 import './style/index.scss'
 
 import useClassification, { IClassification } from 'hooks/useClassification'
+import { Link } from 'react-router-dom'
 
 interface IAll {
   history?: H.History
@@ -25,10 +26,10 @@ const All: React.FC<IAll> = ({ history, match }) => {
   }
 
   const items = [
-    { weburl: './img.jpg', content: '连载' },
-    { weburl: './img.jpg', content: '音乐' },
-    { weburl: './img.jpg', content: '问答' },
-    { weburl: './img.jpg', content: '图文' },
+    { weburl: './img.jpg', content: '连载', type: 'serialcontent' },
+    { weburl: './img.jpg', content: '音乐', type: 'music' },
+    { weburl: './img.jpg', content: '问答', type: 'question' },
+    { weburl: './img.jpg', content: '图文', type: 'hp' },
   ]
 
   return (
@@ -43,15 +44,17 @@ const All: React.FC<IAll> = ({ history, match }) => {
       />
       <Card>
         <Card.Body className="all_nav_card">
-          {items.map((v) => {
-            const _url = require(`${v.weburl}`)
+          {items.map(({ type, content, weburl }, index) => {
+            const _url = require(`${weburl}`)
 
             return (
-              <Card style={{ background: `url(${_url}) center center no-repeat` }}>
-                <Card.Body className="all_nav_card_body">
-                  <div className="all_nav_card_body_content">{v.content}</div>
-                </Card.Body>
-              </Card>
+              <Link to={`${match.url}/navigation/${type}`} key={index}>
+                <Card style={{ background: `url(${_url}) center center no-repeat` }}>
+                  <Card.Body className="all_nav_card_body">
+                    <div className="all_nav_card_body_content">{content}</div>
+                  </Card.Body>
+                </Card>
+              </Link>
             )
           })}
         </Card.Body>
