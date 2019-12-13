@@ -3,8 +3,10 @@ import { match } from 'react-router'
 import * as H from 'history'
 
 import NavBar from 'components/navBar'
-import Card from 'components/card'
-import { Icon } from 'antd-mobile'
+
+import { Icon, Card } from 'antd-mobile'
+
+import './style/index.scss'
 
 import useClassification, { IClassification } from 'hooks/useClassification'
 
@@ -22,36 +24,11 @@ const All: React.FC<IAll> = ({ history, match }) => {
     history.push(`${match.url}/topical/${uuid}`)
   }
 
-  const renderNavigation = (web_url: string, content: string, key: number) => {
-    return (
-      <Card
-        key={key}
-        style={{
-          position: 'relative',
-          height: 80,
-          width: 80,
-        }}
-        cover={<img src={web_url} />}
-        content={content}
-        onClick={() => console.log(1)}
-        bodyStyle={{
-          position: 'absolute',
-          bottom: 0,
-          height: 20,
-          width: '90%',
-          textAlign: 'center',
-          background: 'rgba(0,0,0,0.1)',
-          border: '1px solid red'
-        }}
-      />
-    )
-  }
-
   const items = [
-    { weburl: '', content: '连载111111' },
-    { weburl: '', content: '音乐' },
-    { weburl: '', content: '问答' },
-    { weburl: '', content: '图文' },
+    { weburl: './img.jpg', content: '连载' },
+    { weburl: './img.jpg', content: '音乐' },
+    { weburl: './img.jpg', content: '问答' },
+    { weburl: './img.jpg', content: '图文' },
   ]
 
   return (
@@ -59,24 +36,35 @@ const All: React.FC<IAll> = ({ history, match }) => {
       <NavBar
         centerComponent={
           <div>
-            ONE<span style={{ paddingRight: 10, paddingLeft: 10 }}>IS</span>ALL
+            ONE<span className="all_header">IS</span>ALL
           </div>
         }
         rightComponent={<Icon type="search" />}
       />
-      <Card
-        title="内容导航"
-        content={items.map((v, index) => renderNavigation(v.weburl, v.content, index))}
-        bodyStyle={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}
-      />
+      <Card>
+        <Card.Body className="all_nav_card">
+          {items.map((v) => {
+            const _url = require(`${v.weburl}`)
+
+            return (
+              <Card style={{ background: `url(${_url}) center center no-repeat` }}>
+                <Card.Body className="all_nav_card_body">
+                  <div className="all_nav_card_body_content">{v.content}</div>
+                </Card.Body>
+              </Card>
+            )
+          })}
+        </Card.Body>
+      </Card>
       {list.map(({ id, content_id, title, cover }: IClassification) => (
-        <Card
-          key={id}
-          onClick={() => handleClick(content_id)}
-          cover={<img src={cover} style={{ height: 150, width: '100%' }} />}
-          content={title}
-          bodyStyle={{ fontSize: 16, color: '#000', fontFamily: '微软雅黑' }}
-        />
+        <div key={id} style={{ marginTop: 10 }}>
+          <Card>
+            <Card.Body onClick={() => handleClick(content_id)}>
+              <img src={cover} style={{ height: 150, width: '100%' }} />
+            </Card.Body>
+            <Card.Footer content={<span className="all_content_card_footer">{title}</span>} />
+          </Card>
+        </div>
       ))}
     </div>
   )

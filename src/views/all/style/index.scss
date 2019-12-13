@@ -1,0 +1,32 @@
+.all{
+  &_header {
+    padding: 0 10px;
+  }
+  &_nav_card {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &_body {
+      margin: 0;
+      padding: 0;
+      width: 80px;
+
+      &_content {
+        background: rgba($color: #000000, $alpha: 0.1);
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        color: white;
+      }
+    }
+  }
+
+    &_content_card_footer {
+      font-family: "微软雅黑";
+      color: #000;
+      padding-top: 10px;
+      font-size: 16px;
+    }
+  }
